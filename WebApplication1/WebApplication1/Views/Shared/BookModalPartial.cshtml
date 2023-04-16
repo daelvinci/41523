@@ -1,4 +1,7 @@
 ﻿@model Book
+@{
+    decimal discountedPrice;
+}
  <div class="modal-content">
 
     <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal" aria-label="Close">
@@ -24,21 +27,6 @@
                   "asNavFor": ".product-details-slider",
                   "focusOnSelect": true
                   }'>
-                <div class="single-slide">
-                    <img src="~/image/products/product-details-1.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/image/products/product-details-2.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/image/products/product-details-3.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/image/products/product-details-4.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/image/products/product-details-5.jpg" alt="">
-                </div>
             </div>
         </div>
         <div class="col-lg-7 mt--30 mt-lg--30">
@@ -46,16 +34,17 @@
                 <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
                 <h3 class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
                 <ul class="list-unstyled">
-                    <li>Ex Tax: <span class="list-value"> £60.24</span></li>
-                    <li>Author: <a href="#" class="list-value font-weight-bold"> @Model.Author.Name</a></li>
+                    <li>Genre: <span class="list-value"> @(Model.Genre.Name)</span></li>
+                    <li>Author: <a href="#" class="list-value font-weight-bold"> @(Model.Author?.Name)</a></li>
                     <li>Product Code: <span class="list-value"> model1</span></li>
                     <li>Reward Points: <span class="list-value"> 200</span></li>
                     <li>Availability: <span class="list-value"> @(Model.StockStatus ? "In stock":"Out stcok")</span></li>
                 </ul>
                 <div class="price-block">
-                    @if(Model.DiscountPercent>0){
-                        
-                        <span class="price-new">£@(Model.SalePrice * (100 - Model.DiscountPercent) / 100; )</span>
+                    @if(Model.DiscountPercent>0)
+                    {
+                        @(discountedPrice = Model.SalePrice * (100 - Model.DiscountPercent) / 100)
+                        <span class="price-new">£@(discountedPrice)</span>
                         <del class="price-old">£91.86</del>
                     }
                     else

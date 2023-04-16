@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
         {
             _context = context;  
         }
-
+            
         public IActionResult Detail(int id)
         {
             var book = _context.Books
@@ -20,7 +20,8 @@ namespace WebApplication1.Controllers
                 .Include(x=>x.Genre)
                 .Include(x => x.BookImages)
                 .FirstOrDefault(x=>x.Id==id);
-            return PartialView(book);
+
+            return PartialView("BookModalPartial",book);
         }
     }
 }

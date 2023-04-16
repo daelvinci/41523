@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $(document).on("click", '.open-book-model', function (e) {
+    $(document).on("click", '.open-book-modal', function (e) {
 
         e.preventDefault();
         var url = $(this).attr("href");
