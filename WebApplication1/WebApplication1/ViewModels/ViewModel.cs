@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Models;
 
-namespace WebApplication1.DAL
+namespace WebApplication1.ViewModels
 {
     public class ViewModel
     {

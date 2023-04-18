@@ -1,4 +1,5 @@
 ﻿@model List<Book>
+
     <div class="product-slider multiple-row  slider-border-multiple-row  sb-slick-slider"
          data-slick-setting='{
                             "autoplay": true,
@@ -30,7 +31,7 @@
                             <img src="~/image/products/@(item.BookImages.FirstOrDefault(x=>x.PosterStatus==false)?.Image)" alt="">
                         </a>
                         <div class="hover-btns">
-                            <a href="cart.html" class="single-btn">
+                                <a asp-action="addtobasket" asp-controller="book" asp-route-id="@item.Id" class="single-btn add-to-basket">
                                 <i class="fas fa-shopping-basket"></i>
                             </a>
                             <a href="wishlist.html" class="single-btn">

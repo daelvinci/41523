@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WebApplication1.DAL;
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
@@ -26,5 +27,36 @@ namespace WebApplication1.Controllers
             };
             return View(vm);
         }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        //public IActionResult SetSession(string key, string value)
+        //{
+        //    HttpContext.Session.SetString(key, value);
+        //    return RedirectToAction("Index");
+        //}
+
+        //public IActionResult GetSession(string key)
+        //{
+        //    var value = HttpContext.Session.GetString(key);
+        //    return Content(value);
+        //}
+
+        public IActionResult SetCookies (string key, string value)
+        {
+            HttpContext.Response.Cookies.Append(key, value);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult GetCookies(string key)
+        {
+            var value = HttpContext.Request.Cookies[key];
+            return Content(value);
+        }
+
+        
     }
 }

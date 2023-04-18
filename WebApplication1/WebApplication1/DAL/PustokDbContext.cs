@@ -18,12 +18,14 @@ namespace WebApplication1.DAL
         public DbSet<BookTag> BookTags { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BookImage> BookImages{ get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BookTag>(x => x.HasKey(bt => new { bt.BookId, bt.TagId }));
+            modelBuilder.Entity<Setting>(x => x.HasKey(s =>s.Key));
         }
 
     }

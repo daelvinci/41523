@@ -13,4 +13,17 @@
 
         $("#quickModal").modal("show")
     })
+
+    $(document).on("click", '.add-to-basket', function(e){
+        e.preventDefault();
+        var basketUrl = $(this).attr("href");
+
+        fetch(basketUrl)
+            .then(response => response.text())
+            .then(modalHtml => {
+                $(".single-btn .add-to-basket").html(modalHtml)
+            })
+
+        })
 })
+

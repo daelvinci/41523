@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.DAL;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -12,7 +13,13 @@ namespace WebApplication1
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<PustokDbContext>(opt =>
             opt.UseSqlServer("Server=DESKTOP-Q1QK6V2\\SQLEXPRESS; Database=PustokDb; Trusted_Connection=true")
-            );   
+            );
+            builder.Services.AddScoped<LayoutService>();
+            //builder.Services.AddSession(opt=>
+            //{
+            //    opt.IdleTimeout = TimeSpan.FromMinutes(20);
+            //});
+
 
             var app = builder.Build();
 
@@ -24,6 +31,8 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseSession();
+
 
             app.UseRouting();
 
