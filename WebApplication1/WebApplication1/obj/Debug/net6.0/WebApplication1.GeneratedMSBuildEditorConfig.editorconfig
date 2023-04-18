@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\SONY\Desktop\41523\WebApplication1\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/SONY/Desktop/41523/WebApplication1/WebApplication1/Views/Book/ShowBasket.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xTaG93QmFza2V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/SONY/Desktop/41523/WebApplication1/WebApplication1/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

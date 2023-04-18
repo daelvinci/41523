@@ -52,8 +52,9 @@ namespace WebApplication1.Controllers
         public IActionResult ShowBasket()
         {
             var basket = HttpContext.Request.Cookies["basket"];
+            var basketItems = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(basket);
             //HttpContext.Response.Cookies.Delete("basket");
-            return Json(basket);
+            return Json(basketItems);
         }
     }
 }

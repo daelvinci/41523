@@ -20,6 +20,7 @@ namespace WebApplication1
             //    opt.IdleTimeout = TimeSpan.FromMinutes(20);
             //});
 
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 
